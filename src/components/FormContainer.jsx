@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, Button, InputGroup, Container, Row, Col } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { insert } from "../db/idb";
 
 const FormContainer = () => {
-  const [product, setProduct] = useState({});
 
   const  handleClick = async (event) => {
     event.preventDefault();
@@ -30,7 +29,6 @@ const FormContainer = () => {
     }
       else{
         toast.success("Successfully saved!");
-      setProduct(newProduct);
 
       document.getElementById("productName").value = "";
       document.getElementById("productPrice").value = "";

@@ -1,6 +1,5 @@
 import React, {useState,useEffect} from 'react'
 import { PieChart } from '@mui/x-charts/PieChart';
-import { Container } from 'react-bootstrap';
 import { findByCategory } from '../db/idb';
 
 const Diagram = () => {
@@ -33,7 +32,7 @@ const Diagram = () => {
     
         // Call the fetchData function
         fetchData();
-      }, []); // Empty dependency array means this effect runs only once
+      }, [categories]); // Empty dependency array means this effect runs only once
 
   return (
     <center>
