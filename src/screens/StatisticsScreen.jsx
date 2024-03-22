@@ -1,24 +1,20 @@
-import React, { useState } from "react";
-import { findAll } from "../db/idb";
+import React from "react";
+import ProductsTable from "../components/ProductsTable";
+import Header from "../components/Header";
+import Footer from '../components/Footer';
+import Diagram from "../components/Diagram";
+import Reports from "../components/Reports";
 
 const StatisticsScreen = () => {
-    const [products,setProducts] = useState([]);
-
-  findAll()
-    .then((data) => {
-      console.log("Data retrieved:", data);
-      setProducts(data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-
-
-  return <div>
-    {products.map(product => (
-        <p>{product.name}</p>
-    ))}
-  </div>;
+  return (
+    <div>
+      <Header />
+      <Reports />
+      <ProductsTable />
+      <Diagram />
+      <Footer />
+    </div>
+  );
 };
 
 export default StatisticsScreen;

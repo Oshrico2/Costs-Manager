@@ -20,14 +20,17 @@ const FormContainer = () => {
     if (
       newProduct.name === "" ||
       newProduct.price === "" ||
-      newProduct.category === "" ||
+      newProduct.category === "Category" ||
       newProduct.description === ""
     ) {
-      toast.error("Fields are empty");
-    } else {
-      setProduct(newProduct);
+      toast.error("Not all fields are filled");
+    } else if(newProduct.price < 0){
+      toast.error("Price should be positive");
 
-      toast.success("Successfully saved!");
+    }
+      else{
+        toast.success("Successfully saved!");
+      setProduct(newProduct);
 
       document.getElementById("productName").value = "";
       document.getElementById("productPrice").value = "";
