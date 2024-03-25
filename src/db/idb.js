@@ -133,4 +133,45 @@ const findByCategory = async (category) => {
   });
 };
 
-export { insert, findAll,findByCategory };
+const findByDate = async (month, year) => {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open("CostsDB", 1);
+
+    request.onupgradeneeded = function(event) {
+      const db = event.target.result;
+      if (!db.objectStoreNames.contains('myObjectStore')) {
+        db.createObjectStore('myObjectStore', { keyPath: 'id', autoIncrement: true });
+      }
+    };
+
+    request.onsuccess = function (event) {
+      const db = event.target.result;
+      const transaction = db.transaction(["myObjectStore"], "readonly");
+      const objectStore = transaction.objectStore("myObjectStore");
+
+      const getAllRequest = objectStore.getAll();
+
+      getAllRequest.onsuccess = function(event) {
+        const allData = event.target.result;
+        // Filter data based on month and year
+        const filteredData = allData.filter(item => {
+          const [itemYear, itemMonth] = item.date.split('-');
+          return itemMonth === month && itemYear === year;
+        });
+        resolve(filteredData);
+      };
+
+      getAllRequest.onerror = function(event) {
+        reject(new Error("Error retrieving data: " + event.target.error));
+      };
+    };
+
+    request.onerror = function (event) {
+      reject(new Error("Database error: " + event.target.error));
+    };
+  });
+};
+
+
+
+export { insert, findAll,findByCategory, findByDate };

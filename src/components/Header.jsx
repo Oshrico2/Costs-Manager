@@ -16,7 +16,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleToggle} />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/main">Home</Nav.Link>
             <Nav.Link as={Link} to="/statistics">Statistics</Nav.Link>
           </Nav>
         </Navbar.Collapse>

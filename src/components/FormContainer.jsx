@@ -50,7 +50,7 @@ const FormContainer = () => {
       <Container className="mt-5 px-5">
         <Form>
           <Row>
-            <Col>
+            <Col md={6} xs={12}>
               <InputGroup className="mb-4">
                 <Form.Control type="text" placeholder="Name" id="productName" />
               </InputGroup>
@@ -77,7 +77,7 @@ const FormContainer = () => {
                 </Form.Select>
               </InputGroup>
             </Col>
-            <Col>
+            <Col md={6} xs={12}>
               <InputGroup className="mt-1">
                 <Form.Control
                   as="textarea"

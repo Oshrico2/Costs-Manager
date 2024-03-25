@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const MainScreen = () => {
   return (
-    <div>
+    <div className="background2">
       <Header />
       <FormContainer />
       <Footer/>

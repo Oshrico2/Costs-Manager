@@ -1,0 +1,74 @@
+body{
+    font-family: "Josefin Sans", sans-serif, system-ui !important;
+}
+
+.background2{
+    background-image: url('./images/background-cm2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    /* Set background color with opacity */
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the last value (0.5) for opacity */
+}
+
+.background {
+    background-image: url('./images/background-cm.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: grid;
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  .centered {
+    text-align: center;
+  }
+  
+  .floating {
+    animation: floatingAnimation 2s ease-in-out infinite;
+    width: 300px;
+    height: 80px;
+}
+
+  
+  @keyframes floatingAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+
+  .animated-text {
+    background-color: rgba(0, 0, 0, 0.363);
+    color: rgb(255, 255, 255);
+    animation: slideIn 1.5s ease-in-out forwards;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .diagram-style{
+    background-color: rgba(0, 0, 0, 0.24);
+  }
+  .diagram-style text{
+    fill: rgb(255, 255, 255) !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    
+  }
