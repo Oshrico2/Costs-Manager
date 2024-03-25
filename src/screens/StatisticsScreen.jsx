@@ -19,7 +19,7 @@ const StatisticsScreen = () => {
       <Header />
       <Reports onDataFetch={handleDataFetch} />
       <ProductsTable data={fetchedData} />
-      <Diagram />
+      <Diagram data={fetchedData} />
       <Footer />
     </div>
   );
