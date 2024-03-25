@@ -4,9 +4,10 @@ import { Container, Table } from "react-bootstrap";
 
 const ProductsTable = (props) => {
   const [products, setProducts] = useState([]);
+  const [sumOfExpenses, setSumOfExpenses] = useState(0);
+  const [flag, setFlag] = useState(false); 
 
   useEffect(() => {
-    // Fetch data only if props.data is not provided or is empty
     if (!props.data || props.data.length === 0) {
       findAll()
         .then((data) => {
@@ -19,13 +20,20 @@ const ProductsTable = (props) => {
     } else {
       // Use data from props if it exists
       setProducts(props.data);
+      setFlag(true); // Set flag to true
     }
   }, [props.data]); // Run effect whenever props.data changes
+
+  useEffect(() => {
+    // Calculate sum of expenses when products change
+    const total = products.reduce((acc, product) => acc + parseFloat(product.price), 0);
+    setSumOfExpenses(total);
+  }, [products]);
 
   return (
     <Container className="mt-5">
       <Table className="text-bg-light" striped bordered hover responsive>
-        <thead> {/* Use thead instead of tr for table header */}
+        <thead>
           <tr>
             <th>Name</th>
             <th>Price</th>
@@ -34,7 +42,7 @@ const ProductsTable = (props) => {
             <th>Date</th>
           </tr>
         </thead>
-        <tbody> {/* Use tbody for table body */}
+        <tbody> 
           {products.map((product) => (
             <tr key={product.id}>
               <td>{product.name}</td>
@@ -46,6 +54,7 @@ const ProductsTable = (props) => {
           ))}
         </tbody>
       </Table>
+      {flag && <h3 className="text-center text-dark shadow bg-light" style={{ opacity: 0.7 }}>Total expenses for the selected date: {sumOfExpenses}</h3>}
     </Container>
   );
 };

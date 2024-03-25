@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import TimeCounter from './TimeCounter';
 
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
@@ -18,6 +19,7 @@ const Header = () => {
           <Nav className="ms-auto">
             <Nav.Link as={Link} to="/main">Home</Nav.Link>
             <Nav.Link as={Link} to="/statistics">Statistics</Nav.Link>
+            <Nav.Link><TimeCounter /></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
