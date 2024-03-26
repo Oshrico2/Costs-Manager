@@ -33,7 +33,7 @@ https://github.com/Oshrico2/Costs-Manager/assets/95771163/486b7619-0199-4d13-967
 
 
 ## Website
-[[Link]](https://master--costs-manager-osher-and-guy.netlify.app/statistics)
+[[Link]](https://master--costs-manager-osher-and-guy.netlify.app)
 
 ## Additional Notes
 - Make sure you have Node.js installed on your machine.
